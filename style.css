@@ -652,3 +652,237 @@ svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width:
   .timeline { grid-column: 2; grid-row: 1 / span 2; }
   .day__objection { grid-column: 2; grid-row: 3; margin: 0; }
 }
+
+/* =====================================================================
+   ערכת עיצוב 2 (13.11.26): לבן, זהב וכהה, טקסט ממורכז
+   בהשראת הדפים שאירן בחרה. בא אחרי כל הכללים הקודמים וגובר עליהם.
+   ===================================================================== */
+:root {
+  --cream: #FFFFFF;
+  --paper: #FAF6EE;
+  --ink: #1B1B1B;
+  --muted: #5C5852;
+  --line: #E8DFCC;
+  --gold: #C9A24A;
+  --gold-light: #E9CF86;
+  --gold-deep: #8A6A22;
+  --night: #1E1E1E;
+  --navy: #1F2A44;
+  --navy-deep: #141C2F;
+
+  --sage: var(--gold);
+  --sage-tint: #F6EFDF;
+  --sage-deep: var(--night);
+  --rose: var(--gold-light);
+  --rose-tint: var(--paper);
+  --rose-deep: var(--navy);
+  --rose-deeper: var(--navy-deep);
+}
+
+body { background: #fff; color: var(--ink); }
+a { color: var(--gold-deep); }
+:focus-visible { outline-color: var(--gold-deep); }
+
+/* כותרות: כהות, מודגשות, ממורכזות, עם קישוט זהב מתחת */
+.h2 {
+  color: var(--ink);
+  font-weight: 700;
+  text-align: center;
+  margin-inline: auto;
+  max-width: 18em;
+}
+.h2::after {
+  content: "";
+  display: block;
+  width: 170px; height: 14px;
+  margin: 18px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 14'%3E%3Cpath d='M0 7h66M104 7h66' stroke='%23C9A24A' stroke-width='1.5'/%3E%3Cpath d='M85 1l6 6-6 6-6-6z' fill='%23C9A24A'/%3E%3Ccircle cx='72' cy='7' r='2' fill='%23C9A24A'/%3E%3Ccircle cx='98' cy='7' r='2' fill='%23C9A24A'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.h3 { text-align: center; color: var(--ink); }
+.lead { color: var(--ink); }
+.prose, .prose--center { margin-inline: auto; text-align: center; max-width: 34em; }
+
+/* רשימות וי: הבלוק ממורכז, השורות מיושרות */
+.checks { display: block; width: fit-content; max-width: 100%; margin-inline: auto; text-align: start; }
+.checks li::before { background-color: var(--gold); }
+
+/* כפתורים בסגנון כהה עם מסגרת זהב וזוהר */
+.btn {
+  background: var(--navy);
+  color: var(--gold-light);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 0 22px -4px rgba(201, 162, 74, .75);
+  letter-spacing: .01em;
+}
+.btn:hover { background: var(--navy-deep); color: #fff; }
+.cta-block { text-align: center; }
+.cta-note { text-align: center; }
+
+/* סרגל עליון כהה */
+.topbar { position: relative; background: var(--navy); }
+.topbar__inner { height: 60px; }
+.topbar__name { color: var(--gold-light); font-weight: 700; font-size: 1.35rem; }
+.topbar__cta { color: #fff; border-bottom-color: var(--gold); }
+
+/* הירו: טור אחד ממורכז */
+.hero { padding-top: clamp(40px, 6vw, 72px); background: #fff; }
+.hero__grid,
+.hero__grid { 
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "claim" "photo" "promise" "body" "cta";
+  max-width: 780px; margin-inline: auto; text-align: center; row-gap: 26px;
+}
+.hero__claim { color: var(--ink); font-weight: 700; }
+.hero__photo { width: 100%; max-width: 460px; justify-self: center; align-self: auto; }
+.hero__photo::before { inset: -10px; border-radius: 30px; background: none; border: 1.5px solid var(--gold); }
+.hero__photo img { border: 3px solid var(--gold); }
+.hero__promise {
+  border: 0; padding: 18px 0 0; position: relative;
+  max-width: 32em; margin-inline: auto; color: var(--ink);
+}
+.hero__body { max-width: 30em; margin-inline: auto; }
+
+/* כרטיסים כהים עם מסגרת זהב */
+.fact {
+  background: var(--night);
+  color: #fff;
+  border: 3px solid var(--gold);
+  border-radius: 6px;
+  text-align: center;
+}
+.fact__icon { color: var(--gold); margin-inline: auto; }
+.fact__q { color: var(--gold-light); font-size: 1.3rem; }
+.fact p { color: #F2EEE6; }
+.fact--price { background: var(--navy); }
+.fact--price .fact__q, .fact--price p { color: #fff; }
+.fact--price .fact__icon { color: var(--gold); }
+.fact__big { color: var(--gold-light); font-size: 2.4rem; }
+@media (min-width: 1000px) {
+  .fact--price { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .fact--price .fact__icon { width: 34px; height: 34px; margin: 0 auto 12px; }
+}
+
+/* פס התוצאה */
+.result { background: var(--night); text-align: center; border-block: 3px solid var(--gold); }
+.result__grid { grid-template-columns: 1fr !important; justify-items: center; }
+.result__num { color: var(--gold-light); }
+.result__shot { justify-self: center !important; }
+
+/* אזור ההזדהות: טור אחד ממורכז */
+.split { grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; gap: 40px; }
+.split__text { text-align: center; margin-inline: auto; }
+.chat { position: static; width: 100%; max-width: 540px; margin-inline: auto; background-color: #F5EFE3; }
+.chat__head { justify-content: center; text-align: center; }
+.chat__avatar, .quote-bubble__avatar { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--gold); }
+.bubble--out { background: #F1E3BF; }
+.chat .bubble--out { color: var(--ink); }
+.real-msgs { max-width: 540px; margin-inline: auto; }
+.real-msgs__cap { text-align: center; color: var(--ink); }
+
+/* למה זה לא החזיק */
+.section--sage { background: var(--sage-tint); }
+.slip::before { background: rgba(201, 162, 74, .5); }
+.slip { text-align: center; }
+.slip__title { text-decoration-color: #C0392B; }
+.statement { color: var(--ink); font-weight: 700; }
+.statement::after { content: ""; display: block; width: 90px; height: 3px; background: var(--gold); margin: 16px auto 0; }
+
+/* על אירן: ממורכז */
+.about__main { grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; justify-items: center; }
+.about__intro { position: static; text-align: center; }
+.about__name { color: var(--gold-deep); font-weight: 700; }
+.about__photo { margin-inline: auto; border: 3px solid var(--gold); }
+.about__story { text-align: center; }
+.pull {
+  border: 0; padding: 0; text-align: center; font-style: italic;
+  color: var(--ink); max-width: 28em; margin-inline: auto;
+}
+.pull::before, .pull::after { content: ""; display: block; width: 60px; height: 2px; background: var(--gold); margin: 14px auto; }
+.about__ba { margin-inline: auto; border: 3px solid var(--gold); }
+.traits { justify-items: center; text-align: center; }
+.traits li { flex-direction: column; color: var(--ink); }
+.traits svg { background: var(--night); color: var(--gold); width: 54px; height: 54px; padding: 14px; }
+.why-me { background: var(--night); color: #F2EEE6; border: 3px solid var(--gold); border-radius: 6px; text-align: center; }
+.why-me .h3 { color: var(--gold-light); }
+.why-me__close { color: var(--gold-light); }
+
+/* חשיפת האתגר: אזור כהה */
+#challenge { background: var(--night); color: #F2EEE6; border-block: 3px solid var(--gold); }
+.reveal__pre { color: var(--gold-light); }
+.reveal__title { color: #fff; font-weight: 700; }
+.reveal__ten { color: var(--gold-light); }
+.bubble--big { color: var(--ink); }
+
+/* מה מקבלים */
+.kit { grid-template-columns: 1fr; justify-items: center; text-align: center; max-width: 720px; margin-inline: auto; }
+.kit__photo { width: 100%; border: 3px solid var(--gold); }
+.small-note { text-align: center; }
+.objection { align-items: center; margin-inline: auto; text-align: center; }
+.objection .bubble--in { align-self: center; }
+.objection__answer { border: 0; padding: 0; }
+.support { background: var(--night); color: #F2EEE6; border: 3px solid var(--gold); border-radius: 6px; box-shadow: none; }
+.support .h3 { color: var(--gold-light); }
+.checks--grid { display: grid; }
+.most-important__lead { color: var(--ink); font-weight: 700; }
+
+/* יום באתגר: טור אחד */
+.day { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; justify-items: center; }
+.day__head, .day__photo, .timeline, .day__objection { grid-column: auto; grid-row: auto; }
+.day__head { text-align: center; }
+.day__photo { border: 3px solid var(--gold); }
+.timeline { width: 100%; max-width: 460px; }
+.timeline__icon { box-shadow: inset 0 0 0 2px var(--gold); color: var(--ink); }
+.timeline__item strong { color: var(--ink); }
+
+/* עדויות */
+.ba figcaption { background: var(--night); color: var(--gold-light); border: 1px solid var(--gold); }
+.shot, .ba { box-shadow: 0 0 0 2px var(--gold); }
+.disclaimer { text-align: center; }
+.stories .beyond .h3 { text-align: center; }
+
+/* למי זה מתאים */
+.fit { grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; text-align: center; }
+.fit__list .h2 { max-width: none; }
+.fit__care { border: 2px solid var(--gold); text-align: center; }
+.medical { background: var(--sage-tint); }
+
+/* מחיר */
+.price { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; text-align: center; }
+.price__card { background: var(--night); color: #F2EEE6; border: 3px solid var(--gold); border-radius: 6px; box-shadow: 0 30px 60px -40px rgba(0, 0, 0, .6); }
+.price__card .h2 { color: #fff; }
+.price__sub { color: var(--gold-light); }
+.price__tag { border-top-color: rgba(201, 162, 74, .5); }
+.price__amount { color: var(--gold-light); }
+.price__amount span { color: #CFC8BA; }
+.price__side .objection { margin-inline: auto; }
+.cycle { background: var(--sage-tint); justify-content: center; text-align: center; border: 1px solid var(--line); }
+.cycle svg { color: var(--gold-deep); }
+
+/* שאלות ותשובות */
+.faq details, .faq details:first-child { border-color: var(--line); }
+.faq summary { color: var(--ink); }
+.faq summary svg { color: var(--gold); }
+.faq details p { margin-inline: auto; text-align: center; }
+
+/* טופס */
+.form-section { background: var(--paper); }
+.quiz { border: 2px solid var(--gold); box-shadow: 0 30px 60px -45px rgba(0, 0, 0, .5); }
+.quiz__fill { background: var(--gold); }
+.quiz__step legend { color: var(--ink); font-weight: 700; text-align: center; width: 100%; }
+.choice > span { justify-content: center; text-align: center; background: #fff; }
+.choice:hover > span { box-shadow: inset 0 0 0 1.5px var(--gold); }
+.choice input:checked + span { background: var(--night); color: var(--gold-light); }
+.field input:focus { box-shadow: inset 0 0 0 2px var(--gold-deep); }
+.consent input { accent-color: var(--gold-deep); }
+.quiz__done-title { color: var(--ink); }
+.form-intro .lead { color: var(--ink); }
+
+/* סגירה ופוטר */
+.closing { background: var(--night); border-top: 3px solid var(--gold); }
+.closing__line { color: #fff; font-weight: 700; }
+.closing__sign { color: var(--gold-light); }
+.footer { background: #fff; text-align: center; }
+.footer__links { justify-content: center; }
+.sticky-cta { background: rgba(255, 255, 255, .96); }
