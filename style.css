@@ -667,8 +667,8 @@ svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width:
   --gold-light: #E9CF86;
   --gold-deep: #8A6A22;
   --night: #1E1E1E;
-  --navy: #1F2A44;
-  --navy-deep: #141C2F;
+  --navy: #8E1B2C;
+  --navy-deep: #6B1220;
 
   --sage: var(--gold);
   --sage-tint: #F6EFDF;
