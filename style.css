@@ -1175,3 +1175,4 @@ dialog.policy::backdrop { background: rgba(30, 15, 22, .6); }
   .mock--hero .phone { inset-inline-start: 0; width: 222px; }
   .mock__kit { inset-inline-end: 3%; width: 44%; top: 60px; }
 }
+.proof .ba figcaption { max-width: calc(100% - 24px); white-space: normal; line-height: 1.35; text-align: center; }
