@@ -1176,3 +1176,18 @@ dialog.policy::backdrop { background: rgba(30, 15, 22, .6); }
   .mock__kit { inset-inline-end: 3%; width: 44%; top: 60px; }
 }
 .proof .ba figcaption { max-width: calc(100% - 24px); white-space: normal; line-height: 1.35; text-align: center; }
+
+/* עדות קטנה ליד התמונה של אירן (17.11.26) */
+.hero__media { display: block; position: relative; width: 100%; max-width: 460px; margin-inline: auto; padding-bottom: 34px; }
+.hero__media .hero__photo { width: 100%; max-width: none; margin: 0; }
+.hero__media .status-chip { top: 14px; bottom: auto; }
+.hero__proof {
+  position: absolute; z-index: 2; left: -70px; bottom: 0;
+  width: 210px; margin: 0; transform: rotate(-3deg);
+  box-shadow: 0 0 0 2px var(--gold), 0 18px 34px -14px rgba(0, 0, 0, .5);
+}
+.hero__proof img { display: block; }
+@media (max-width: 699px) {
+  .hero__media { width: calc(100% - 28px); }
+  .hero__proof { left: -16px; width: 150px; }
+}

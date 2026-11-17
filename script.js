@@ -97,15 +97,16 @@ if (popup) {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !popup.hidden) closePopup(); });
 }
 
-/* ===== מדיניות פרטיות בחלון ===== */
-const policy = document.getElementById("privacy");
-if (policy && typeof policy.showModal === "function") {
-  document.querySelectorAll(".js-privacy").forEach((a) =>
-    a.addEventListener("click", (e) => { e.preventDefault(); policy.showModal(); })
+/* ===== מדיניות פרטיות והצהרת נגישות בחלון ===== */
+[["privacy", ".js-privacy"], ["accessibility", ".js-a11y"]].forEach(([id, sel]) => {
+  const dlg = document.getElementById(id);
+  if (!dlg || typeof dlg.showModal !== "function") return;
+  document.querySelectorAll(sel).forEach((a) =>
+    a.addEventListener("click", (e) => { e.preventDefault(); dlg.showModal(); })
   );
-  policy.querySelector(".js-policy-close").addEventListener("click", () => policy.close());
-  policy.addEventListener("click", (e) => { if (e.target === policy) policy.close(); });
-}
+  dlg.querySelector(".js-policy-close").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+});
 
 /* ===== טופס: שם וטלפון, וממשיכים לוואטסאפ ===== */
 const form = document.getElementById("lead-form");
