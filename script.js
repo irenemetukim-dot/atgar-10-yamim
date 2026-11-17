@@ -2,8 +2,10 @@
 const CONFIG = {
   // מספר הוואטסאפ של אירן בפורמט בינלאומי, בלי + ובלי מקפים. למשל: 972501234567
   whatsappNumber: "",
+  // מספר הטלפון להצגה בראש הדף ובתחתית (חובה לפי מחלקת האתיקה של הרבלייף). למשל: 050-1234567
+  phoneDisplay: "",
   // תאריך פתיחת המחזור הבא. מתעדכן בכל המקומות בדף
-  nextCycleDate: "17.11.26",
+  nextCycleDate: "1.12.26",
 };
 
 document.documentElement.classList.add("js");
@@ -70,67 +72,52 @@ if (sticky && hero && formSection && "IntersectionObserver" in window) {
   new IntersectionObserver(([e]) => { formVisible = e.isIntersecting; update(); }, { threshold: 0.05 }).observe(formSection);
 }
 
-/* ===== שאלון בשלבים ===== */
-const form = document.getElementById("quiz");
-if (form) {
-  const steps = [...form.querySelectorAll(".quiz__step")];
-  const total = steps.length;
-  const backBtn = form.querySelector(".quiz__back");
-  const stepNum = form.querySelector(".js-step-num");
-  const fill = form.querySelector(".quiz__fill");
-  const counter = form.querySelector(".quiz__count");
-  const done = form.querySelector(".quiz__done");
-  const top = form.querySelector(".quiz__top");
-  const bar = form.querySelector(".quiz__bar");
-  let current = 0;
+/* ===== טלפון בראש הדף ובתחתית ===== */
+if (CONFIG.phoneDisplay) {
+  const tel = "+972" + CONFIG.phoneDisplay.replace(/\D/g, "").replace(/^0/, "");
+  document.querySelectorAll(".js-phone").forEach((el) => (el.textContent = CONFIG.phoneDisplay));
+  document.querySelectorAll(".js-phone-link").forEach((a) => (a.href = "tel:" + tel));
+}
 
-  const show = (index, focus = true) => {
-    current = index;
-    steps.forEach((s, i) => {
-      s.hidden = i !== index;
-      s.classList.toggle("is-active", i === index);
-    });
-    stepNum.textContent = index + 1;
-    fill.style.width = ((index + 1) / total) * 100 + "%";
-    backBtn.hidden = index === 0;
-    if (focus) {
-      const target = steps[index].querySelector("input:checked") || steps[index].querySelector("input");
-      if (target) target.focus({ preventScroll: true });
-    }
+/* ===== חלון הפתיחה של הרבלייף: מופיע בכל כניסה לדף, גם בכניסות חוזרות ===== */
+const popup = document.getElementById("hl-popup");
+if (popup) {
+  let lastFocus = null;
+  const closePopup = () => {
+    popup.hidden = true;
+    document.body.classList.remove("has-popup");
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
   };
+  lastFocus = document.activeElement;
+  popup.hidden = false;
+  document.body.classList.add("has-popup");
+  popup.querySelector(".hl-popup__close").focus({ preventScroll: true });
+  popup.querySelectorAll(".js-popup-close").forEach((b) => b.addEventListener("click", closePopup));
+  popup.addEventListener("click", (e) => { if (e.target === popup) closePopup(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !popup.hidden) closePopup(); });
+}
 
-  // לחיצה או נגיעה בתשובה מעבירה לשאלה הבאה. במקלדת: חיצים לבחירה, Enter להמשך
-  let pointerUsed = false;
-  form.addEventListener("pointerdown", () => { pointerUsed = true; });
-  form.addEventListener("keydown", () => { pointerUsed = false; });
+/* ===== מדיניות פרטיות בחלון ===== */
+const policy = document.getElementById("privacy");
+if (policy && typeof policy.showModal === "function") {
+  document.querySelectorAll(".js-privacy").forEach((a) =>
+    a.addEventListener("click", (e) => { e.preventDefault(); policy.showModal(); })
+  );
+  policy.querySelector(".js-policy-close").addEventListener("click", () => policy.close());
+  policy.addEventListener("click", (e) => { if (e.target === policy) policy.close(); });
+}
 
-  steps.forEach((step, i) => {
-    step.querySelectorAll('input[type="radio"]').forEach((radio) => {
-      radio.addEventListener("click", () => {
-        if (pointerUsed && i < total - 1) setTimeout(() => show(i + 1), 220);
-      });
-      // במקלדת: Enter מאשר את הבחירה וממשיך
-      radio.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          radio.checked = true;
-          if (i < total - 1) show(i + 1);
-        }
-      });
-    });
-  });
-
-  backBtn.addEventListener("click", () => {
-    if (current > 0) show(current - 1);
-  });
+/* ===== טופס: שם וטלפון, וממשיכים לוואטסאפ ===== */
+const form = document.getElementById("lead-form");
+if (form) {
+  const fields = form.querySelector(".lead-form__fields");
+  const done = form.querySelector(".quiz__done");
 
   const setError = (input, errEl, hasError) => {
     errEl.hidden = !hasError;
-    if (input) {
-      input.setAttribute("aria-invalid", hasError ? "true" : "false");
-      if (hasError) input.setAttribute("aria-describedby", errEl.id);
-      else input.removeAttribute("aria-describedby");
-    }
+    input.setAttribute("aria-invalid", hasError ? "true" : "false");
+    if (hasError) input.setAttribute("aria-describedby", errEl.id);
+    else input.removeAttribute("aria-describedby");
   };
 
   const normalizePhone = (raw) => {
@@ -159,29 +146,18 @@ if (form) {
     if (phoneBad) return phoneInput.focus();
     if (consentBad) return consentInput.focus();
 
-    // אם דילגה על שאלה, חוזרים אליה
-    const missing = ["goal", "hard", "decide", "when"].findIndex((n) => !form.elements[n].value);
-    if (missing !== -1) return show(missing);
-
-    const goal = form.elements.goal.value;
-    const hard = form.elements.hard.value;
     const message =
-      `היי אירן, מילאתי את השאלון באתר ואני רוצה מקום במחזור הקרוב של אתגר 10 הימים 🙂 ` +
-      `שמי ${name}. המטרה שלי: לרדת ${goal}. הכי קשה לי: ${hard}.`;
+      `היי אירן, השארתי פרטים בדף ואני רוצה מקום במחזור הקרוב של אתגר 10 הימים. ` +
+      `שמי ${name}, הטלפון שלי ${phone}.`;
 
     const base = CONFIG.whatsappNumber ? `https://wa.me/${CONFIG.whatsappNumber}` : "https://wa.me/";
     const url = `${base}?text=${encodeURIComponent(message)}`;
 
-    steps.forEach((s) => (s.hidden = true));
-    top.hidden = true;
-    bar.hidden = true;
-    counter.hidden = true;
+    fields.hidden = true;
     done.hidden = false;
     done.querySelector(".js-wa-link").href = url;
     done.focus();
 
     window.location.href = url;
   });
-
-  show(0, false);
 }

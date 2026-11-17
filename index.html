@@ -12,7 +12,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Playpen+Sans+Hebrew:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,12 +40,25 @@
   </defs>
 </svg>
 
+<!-- חלון פתיחה רשמי של הרבלייף: מופיע בכל כניסה לדף (דרישת מחלקת האתיקה). התמונה בלי שום שינוי -->
+<div class="hl-popup" id="hl-popup" role="dialog" aria-modal="true" aria-labelledby="hl-popup-title" hidden>
+  <div class="hl-popup__box">
+    <p class="sr-only" id="hl-popup-title">הודעה מהרבלייף</p>
+    <img src="images/herbalife-popup.png" width="631" height="223" alt="כבר שוחחתם עם חבר הרבלייף עצמאי? תיהנו מיתרונות הקשר הישיר עם חבר הרבלייף עצמאי. אם אתם כבר בקשר עם חבר הרבלייף עצמאי, תוודאו שאתם שומרים על קשר על מנת ליהנות מתמיכה אישית. מוצרי הרבלייף נמכרים באופן בלעדי על ידי חברי הרבלייף העצמאיים שלנו. אתר זה מופעל על ידי חבר הרבלייף עצמאי ולא על ידי הרבלייף ישראל (1990) בע״מ. האתר הרשמי של הרבלייף הינו www.herbalife.co.il">
+    <button type="button" class="hl-popup__hotspot js-popup-close" tabindex="-1" aria-hidden="true"></button>
+    <button type="button" class="hl-popup__close js-popup-close">סגירה</button>
+  </div>
+</div>
+
 <a class="skip" href="#main">דילוג לתוכן</a>
 
 <header class="topbar">
   <div class="wrap topbar__inner">
-    <span class="topbar__name">אירן אלקבץ</span>
-    <a class="topbar__cta" href="#form">למחזור הקרוב</a>
+    <div class="topbar__id">
+      <span class="topbar__name">אירן אלקבץ</span>
+      <a class="topbar__phone js-phone-link" href="tel:" dir="ltr"><span class="js-phone">05X-XXXXXXX</span></a>
+    </div>
+    <img class="topbar__logo" src="images/hid-logo.png" width="305" height="78" alt="Herbalife Independent Distributor, מפיצה עצמאית של הרבלייף">
   </div>
 </header>
 
@@ -56,16 +69,23 @@
   <div class="wrap hero__grid">
     <h1 class="hero__claim">האתגר שעזר למעל 2 מיליון נשים בעולם לרדת בממוצע 1-4 קילו ב-10 ימים, בתוכנית שעובדת כבר למעלה מ-46 שנים, עכשיו מגיע אלייך</h1>
 
-    <figure class="hero__photo media" data-label="תמונה של אירן">
-      <img src="images/irene-hero.jpg" alt="אירן אלקבץ" onerror="this.parentElement.classList.add('is-missing')">
-      <span class="media__ph" aria-hidden="true">תמונה של אירן<br><small>images/irene-hero.jpg</small></span>
-      <figcaption class="status-chip">
-        <span class="status-chip__dot" aria-hidden="true"></span>
-        אירן איתך בוואטסאפ, לאורך כל 10 הימים
-      </figcaption>
-    </figure>
-
     <p class="hero__promise">תני לי 10 ימים ואוביל אותך לירידה של 1-4 ק״ג, דרך ליווי צמוד בוואטסאפ, מעקב משקל וסל תוספי תזונה שמותאם עבורך אישית</p>
+
+    <div class="hero__media">
+      <figure class="hero__photo media" data-label="תמונה של אירן">
+        <img src="images/irene-hero.jpg" alt="אירן אלקבץ" onerror="this.parentElement.classList.add('is-missing')">
+        <span class="media__ph" aria-hidden="true">תמונה של אירן<br><small>images/irene-hero.jpg</small></span>
+        <figcaption class="status-chip">
+          <span class="status-chip__dot" aria-hidden="true"></span>
+          אירן איתך בוואטסאפ, לאורך כל 10 הימים
+        </figcaption>
+      </figure>
+      <figure class="hero__proof shot">
+        <img class="hero__proof-full" src="images/testimonial-2.jpg" alt="צילום מסך משיחה עם משתתפת: בוקר!! פחות חצי ק&quot;ג. איזה כיף. ואירן עונה: הופההה!!! אמרתי לך, זה קורה, צריך פשוט סבלנות. אלופה. ואת זוכרת מה אמרתי לך? אם היית לבד מה היה קורה? גאה בך שלא ויתרת">
+        <img class="hero__proof-crop" src="images/testimonial-2-top.jpg" alt="" aria-hidden="true">
+      </figure>
+    </div>
+    <p class="disclaimer disclaimer--official">כל ההפניות לבקרת משקל קשורות לתוכנית ניהול משקל של הרבלייף, הכוללת, בין היתר, תזונה מאוזנת, פעילות גופנית קבועה, שתיית נוזלים מספקת בכל יום, תוספי תזונה אם צריך ומנוחה נאותה. תוצאות אישיות עשויות להשתנות.</p>
 
     <p class="hero__body">אצלי את לא מקבלת תפריט ונשלחת להתמודד לבד.<br>
     אנחנו בונות אותו יחד סביב היום שלך,<br>
@@ -73,7 +93,7 @@
 
     <div class="hero__cta cta-block">
       <a class="btn" href="#form">אני רוצה מקום במחזור הקרוב</a>
-      <p class="cta-note">בדיסקרטיות: שאלון קצר, ומשם לוואטסאפ איתי</p>
+      <p class="cta-note">בדיסקרטיות: שם וטלפון, ומשם לוואטסאפ איתי</p>
     </div>
   </div>
 </section>
@@ -81,7 +101,7 @@
 <!-- ============ קצר ולעניין ============ -->
 <section class="section section--paper" id="facts" aria-labelledby="facts-title">
   <div class="wrap">
-    <h2 class="h2" id="facts-title">קצר ולעניין: 5 השאלות הכי חשובות</h2>
+    <h2 class="h2" id="facts-title">קצר ולעניין: כל מה שצריך לדעת</h2>
 
     <div class="facts">
       <article class="fact">
@@ -99,34 +119,56 @@
         <h3 class="fact__q">מה את מקבלת?</h3>
         <p>שייק הרבלייף בטעם שתבחרי, שייקר וכפית מדידה.<br>גישה להדרכות אקסקלוסיביות שיתנו לך כלים פרקטיים ומנטליים להשגת התוצאה.<br>וגם ליווי צמוד וקבוצה סגורה.</p>
       </article>
-      <article class="fact fact--price">
-        <svg class="fact__icon" aria-hidden="true"><use href="#i-coin"/></svg>
-        <h3 class="fact__q">מה העלות?</h3>
-        <p><strong class="fact__big">299 ₪</strong> כולל מע"מ, על כל 10 הימים.<br>זה יוצא 29.90 ₪ ליום.</p>
-      </article>
       <article class="fact">
         <svg class="fact__icon" aria-hidden="true"><use href="#i-calendar"/></svg>
         <h3 class="fact__q">מתי זה מתחיל?</h3>
-        <p>מחזור חדש נפתח כל שבועיים.<br>המחזור הבא נפתח ב-<strong class="js-next-date">17.11.26</strong></p>
+        <p>מחזור חדש נפתח כל שבועיים.<br>המחזור הבא נפתח ב-<strong class="js-next-date">1.12.26</strong></p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ פס תוצאה ============ -->
-<section class="result" aria-labelledby="result-title">
-  <div class="wrap result__grid">
-    <div class="result__text">
-      <h2 class="result__title" id="result-title">
-        <span class="result__num">1-4 ק"ג</span>
-        <span class="result__label">ממוצע הירידה באתגר, ב-10 ימים</span>
-      </h2>
-      <p class="disclaimer disclaimer--light">התוצאות משתנות מאישה לאישה ואינן מובטחות</p>
+<!-- ============ תוצאות: 1-4 ק"ג + המלצות (הועלה לכאן מתחתית הדף) ============ -->
+<section class="result" id="stories" aria-labelledby="result-title">
+  <div class="wrap">
+    <h2 class="result__title" id="result-title">
+      <span class="result__num">1-4 ק"ג</span>
+      <span class="result__label">ממוצע הירידה באתגר, ב-10 ימים</span>
+    </h2>
+
+    <h3 class="h3 proof__title">מה כותבות לי הבנות</h3>
+    <div class="proof">
+      <figure class="shot">
+        <img src="images/result-group.jpg" alt="צילום מסך מהקבוצה: פעם ראשונה שלי גם במרתון וגם בתוכנית בכלל, ירדתי ב-10 ימים 2.5 ק&quot;ג" loading="lazy">
+      </figure>
+      <figure class="shot">
+        <img src="images/testimonial-1.jpg" alt="צילום מסך מהקבוצה: היי, ירדתי בעשרה ימים 2.1 ק&quot;ג, ו-6 ק&quot;ג בחודש וחצי מאז שהצטרפתי להרבלייף. המרתון פיקס אותי, התחרות מדרבנת. תודה לאירן המדהימה" loading="lazy">
+      </figure>
+      <figure class="ba">
+        <img src="images/participant-before-after-1.jpg" alt="משתתפת לפני ואחרי, אחרי חודש וחצי" loading="lazy">
+        <figcaption>חודש וחצי</figcaption>
+      </figure>
+      <figure class="ba">
+        <img src="images/participant-before-after-2.jpg" alt="משתתפת לפני ואחרי, חודש הפרש" loading="lazy">
+        <figcaption>חודש אחד</figcaption>
+      </figure>
+      <figure class="ba">
+        <img src="images/participant-before-after-3.jpg" alt="משתתפת לפני ואחרי, אחרי שנה" loading="lazy">
+        <figcaption>שנה</figcaption>
+      </figure>
+      <figure class="shot proof__beyond">
+        <figcaption class="proof__beyond-cap">ויש תוצאות שלא רואים על המשקל:</figcaption>
+        <img src="images/testimonial-3.jpg" alt="צילום מסך מהקבוצה: הבן שלי אמר שהתחלתי להתלבש יפה" loading="lazy">
+      </figure>
     </div>
-    <figure class="result__shot shot">
-      <img src="images/result-group.jpg" alt="צילום מסך מהקבוצה: פעם ראשונה שלי גם במרתון וגם בתוכנית בכלל, ירדתי ב-10 ימים 2.5 ק&quot;ג" onerror="this.parentElement.classList.add('is-missing')">
-      <span class="media__ph" aria-hidden="true">“פעם ראשונה שלי גם במרתון וגם בתוכנית בכלל, ירדתי ב-10 ימים 2.5 ק"ג”<br><small>צילום מסך מהקבוצה: images/result-group.jpg</small></span>
-    </figure>
+
+    <p class="disclaimer disclaimer--official">כל ההפניות לבקרת משקל קשורות לתוכנית ניהול משקל של הרבלייף, הכוללת, בין היתר, תזונה מאוזנת, פעילות גופנית קבועה, שתיית נוזלים מספקת בכל יום, תוספי תזונה אם צריך ומנוחה נאותה. תוצאות אישיות עשויות להשתנות.</p>
+    <p class="disclaimer">חלק מהתוצאות הן של משתתפות שהמשיכו איתי גם אחרי האתגר</p>
+
+    <div class="cta-block cta-block--center">
+      <a class="btn" href="#form">אני רוצה מקום במחזור הקרוב</a>
+      <p class="cta-note">בדיסקרטיות: שם וטלפון, ומשם לוואטסאפ איתי</p>
+    </div>
   </div>
 </section>
 
@@ -162,17 +204,6 @@
         זה לא אומר שאין לך כוח רצון.<br>
         זה אומר שעד היום השאירו אותך לבד להתמודד עם זה.</li>
       </ul>
-    </div>
-
-    <div class="real-msgs" role="group" aria-labelledby="real-msgs-cap">
-      <p class="real-msgs__cap" id="real-msgs-cap">מתוך הודעות אמיתיות שקיבלתי:</p>
-      <img src="images/pain-evening.jpg" alt="אני אוהבת לנשנש אוכל טעים ומתוק" loading="lazy">
-      <img src="images/pain-sweet.jpg" alt="בת 40 אחרי 4 לידות, תקועה עם 5 קילו שלא מצליחה לרדת, יורדת 3 עולה בחזרה. מכורה למתוק" loading="lazy">
-      <img src="images/pain-water.jpg" alt="כי אני לא שותה בכלל" loading="lazy">
-      <img src="images/pain-no-time.jpg" alt="חוסר סדר בארוחות, אוהבת מתוק ונשנושים" loading="lazy">
-      <img src="images/pain-came-back.jpg" alt="לפני שנה שתיתי את השייק, הורדתי כמעט 12 קילו, היתה לי תמיכה אבל הכל עלה" loading="lazy">
-      <img src="images/pain-tried-all.jpg" alt="עשיתי את כל הדיאטות שבעולם, שום דבר לא עזר" loading="lazy">
-      <img src="images/pain-alone.jpg" alt="רוצה לרדת כ-10 קג, לא מצליחה לבד בכלל" loading="lazy">
     </div>
   </div>
 </section>
@@ -218,7 +249,7 @@
 
     <div class="cta-block cta-block--center">
       <a class="btn" href="#form">אני רוצה מקום במחזור הקרוב</a>
-      <p class="cta-note">בדיסקרטיות: שאלון קצר, ומשם לוואטסאפ איתי</p>
+      <p class="cta-note">בדיסקרטיות: שם וטלפון, ומשם לוואטסאפ איתי</p>
     </div>
   </div>
 </section>
@@ -256,10 +287,14 @@
       <p class="lead">ירדתי 20 ק"ג. והכי חשוב: אני שומרת על המשקל החדש שלי כבר מעל 3 שנים.</p>
 
       <figure class="about__ba media media--square">
-        <img src="images/irene-before-after.jpg" alt="אירן לפני ואחרי הירידה במשקל" onerror="this.parentElement.classList.add('is-missing')">
+        <img src="images/irene-before-after.jpg" alt="אירן לפני ואחרי הירידה במשקל: 20 ק&quot;ג פחות" onerror="this.parentElement.classList.add('is-missing')">
         <span class="media__ph" aria-hidden="true">תמונת לפני/אחרי של אירן<br><small>images/irene-before-after.jpg</small></span>
+        <figcaption class="ba-arrow" aria-hidden="true">
+          <span class="ba-arrow__label">20 ק"ג פחות</span>
+          <svg class="ba-arrow__line" viewBox="0 0 200 24" preserveAspectRatio="none"><path d="M4 12h184M174 3l14 9-14 9"/></svg>
+        </figcaption>
       </figure>
-      <p class="disclaimer">התוצאות משתנות מאישה לאישה ואינן מובטחות</p>
+      <p class="disclaimer disclaimer--official">כל ההפניות לבקרת משקל קשורות לתוכנית ניהול משקל של הרבלייף, הכוללת, בין היתר, תזונה מאוזנת, פעילות גופנית קבועה, שתיית נוזלים מספקת בכל יום, תוספי תזונה אם צריך ומנוחה נאותה. תוצאות אישיות עשויות להשתנות.</p>
 
       <h3 class="h3">ומאז, זו העבודה שלי</h3>
       <p>אני עצמאית כבר 10 שנים.<br>
@@ -289,17 +324,34 @@
   <div class="wrap reveal">
     <p class="reveal__pre">אז בניתי את מה שהיה חסר לי אז…</p>
     <h2 class="reveal__title" id="challenge-title">אתגר <span class="reveal__ten">10</span> ימים</h2>
+
+    <div class="mock mock--hero" aria-hidden="true">
+      <img class="mock__kit" src="images/kit.jpg" alt="">
+      <div class="phone">
+        <div class="phone__screen">
+          <div class="phone__bar">
+            <span class="phone__avatar"><img src="images/irene-avatar.jpg" alt=""></span>
+            <span class="phone__who"><b>אתגר 10 ימים</b><small>עם אירן אלקבץ</small></span>
+          </div>
+          <div class="phone__body">
+            <div class="day-dots"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="day-dots__cap">יום 1 מתוך 10</p>
+            <ul class="mini-plan">
+              <li><svg><use href="#i-sun"/></svg>בוקר: שייק</li>
+              <li><svg><use href="#i-apple"/></svg>ארוחת ביניים</li>
+              <li><svg><use href="#i-plate"/></svg>צהריים: אוכל רגיל</li>
+              <li><svg><use href="#i-cookie"/></svg>ארוחת ביניים</li>
+              <li><svg><use href="#i-shake"/></svg>ערב: שייק</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="mock-note">להמחשה בלבד</p>
+
     <p class="reveal__body">10 ימים שבהם את לא צריכה לנחש מה אוכלים עכשיו.<br>
     זה כבר כתוב לך, וזה מותאם ליום שלך.<br>
     וכשקשה? יש לך למי לכתוב.</p>
-
-    <figure class="quote-bubble">
-      <span class="quote-bubble__avatar media" aria-hidden="true"><img src="images/irene-avatar.jpg" alt="" onerror="this.parentElement.classList.add('is-missing')"><span class="media__ph">א</span></span>
-      <blockquote class="bubble bubble--out bubble--big">"אנחנו בונות יחד שגרת אכילה מסודרת של 5 ארוחות ביום,
-      עם שילוב של שייקים ומזון רגיל,
-      ארוחה עיקרית וארוחות ביניים."</blockquote>
-      <figcaption class="sr-only">אירן אלקבץ</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -308,45 +360,173 @@
   <div class="wrap">
     <h2 class="h2" id="included-title">מה את מקבלת באתגר</h2>
 
-    <div class="kit">
-      <figure class="kit__photo media">
-        <img src="images/kit.jpg" alt="השייק, השייקר וכפית המדידה" onerror="this.parentElement.classList.add('is-missing')">
-        <span class="media__ph" aria-hidden="true">השייק, השייקר וכפית המדידה<br><small>images/kit.jpg</small></span>
-        <figcaption class="photo-note">התמונה להמחשה בלבד</figcaption>
-      </figure>
-      <div class="kit__text">
-        <h3 class="h3">הערכה שמגיעה אלייך:</h3>
-        <ul class="checks">
-          <li>שייק הרבלייף (פורמולה 1), בטעם אחד שאת בוחרת</li>
-          <li>שייקר</li>
-          <li>כפית מדידה</li>
-        </ul>
-        <p class="small-note">הערכה מגיעה אלייך במשלוח, עד 5 ימי עסקים. המשלוח כלול במחיר.</p>
+    <div class="gets">
 
-        <h3 class="h3">ומה יש בשייק הזה?</h3>
-        <p>הוא תחליף ארוחה.<br>
-        הוא משלים לך ויטמינים, מינרלים וחלבון.<br>
-        מיליוני אנשים בעולם משתמשים בשייקים האלה.</p>
-      </div>
-    </div>
+      <!-- 1. ערכת התנסות -->
+      <article class="get">
+        <h3 class="get__title">ערכת התנסות</h3>
+        <figure class="get__mock mock">
+          <div class="mock-photo"><img src="images/kit.jpg" alt="השייק, השייקר וכפית המדידה" loading="lazy"></div>
+          <figcaption class="mock-note">התמונה להמחשה בלבד</figcaption>
+        </figure>
+        <div class="get__text">
+          <ul class="checks">
+            <li>שייק הרבלייף (פורמולה 1), בטעם אחד שאת בוחרת</li>
+            <li>שייקר</li>
+            <li>כפית מדידה</li>
+          </ul>
+          <p class="small-note">הערכה מגיעה אלייך במשלוח, עד 5 ימי עסקים. המשלוח כלול במחיר.</p>
+          <p><strong>ומה יש בשייק הזה?</strong><br>
+          הוא תחליף ארוחה.<br>
+          הוא משלים לך ויטמינים, מינרלים וחלבון.<br>
+          מיליוני אנשים בעולם משתמשים בשייקים האלה.</p>
+          <div class="objection">
+            <p class="bubble bubble--in">"אני לא מתחברת לאבקות"</p>
+            <p class="objection__answer">שומעת את זה הרבה, ומבינה.<br>
+            לכן את הטעם את בוחרת בעצמך.<br>
+            והשייק הוא רק חלק מהיום: יש גם אוכל רגיל.</p>
+          </div>
+        </div>
+      </article>
 
-    <div class="objection">
-      <p class="bubble bubble--in">"אני לא מתחברת לאבקות"</p>
-      <p class="objection__answer">שומעת את זה הרבה, ומבינה.<br>
-      לכן את הטעם את בוחרת בעצמך.<br>
-      והשייק הוא רק חלק מהיום: יש גם אוכל רגיל.</p>
-    </div>
+      <!-- 2. הליווי -->
+      <article class="get">
+        <h3 class="get__title">והליווי, שהוא הלב של האתגר</h3>
+        <figure class="get__mock mock" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar">
+                <span class="phone__avatar"><img src="images/irene-avatar.jpg" alt="" loading="lazy"></span>
+                <span class="phone__who"><b>אירן אלקבץ</b><small>ליווי אישי</small></span>
+              </div>
+              <div class="phone__body">
+                <p class="pm pm--her">משמח!! הייתי ממש מדוכדכת אתמול מזה</p>
+                <p class="pm pm--me">אני יודעת ☺️</p>
+                <p class="pm pm--me">ואת זוכרת מה אמרתי לך. אם היית לבד מה היה קורה?</p>
+                <p class="pm pm--her">אמת לאמיתה</p>
+                <p class="pm pm--me">אלופה! גאה בך שלא ויתרת ❤️</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <p class="mock-note">מתוך שיחה אמיתית, להמחשה</p>
+        <div class="get__text">
+          <p>ליווי אישי וצמוד ממני בוואטסאפ, לאורך כל 10 הימים.<br>
+          וכשקשה? יש לך למי לכתוב.</p>
+        </div>
+      </article>
 
-    <div class="support">
-      <h3 class="h3">והליווי, שהוא הלב של האתגר:</h3>
-      <ul class="checks checks--grid">
-        <li>ליווי אישי וצמוד ממני בוואטסאפ</li>
-        <li>התאמת התפריט לסדר היום שלך</li>
-        <li>סדר יום מוכן לכל 10 הימים</li>
-        <li>קבוצת וואטסאפ סגורה של בנות המחזור</li>
-        <li>מעקב משקל</li>
-        <li>גישה להדרכות</li>
-      </ul>
+      <!-- 3. סדר יום ותפריט -->
+      <article class="get">
+        <h3 class="get__title">המלצה לסדר יום ותפריט</h3>
+        <figure class="get__mock mock" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar">
+                <span class="phone__avatar"><img src="images/irene-avatar.jpg" alt="" loading="lazy"></span>
+                <span class="phone__who"><b>סדר היום שלך</b><small>מותאם אישית</small></span>
+              </div>
+              <div class="phone__body">
+                <ul class="mini-plan mini-plan--card">
+                  <li><svg><use href="#i-sun"/></svg><span><b>בוקר</b>שייק, 2 דקות הכנה</span></li>
+                  <li><svg><use href="#i-apple"/></svg><span><b>ארוחת ביניים</b>משהו קטן, מתוכנן מראש</span></li>
+                  <li><svg><use href="#i-plate"/></svg><span><b>צהריים</b>ארוחה עיקרית של אוכל רגיל</span></li>
+                  <li><svg><use href="#i-cookie"/></svg><span><b>ארוחת ביניים</b>בדיוק כשמגיע החשק למתוק</span></li>
+                  <li><svg><use href="#i-shake"/></svg><span><b>ערב</b>שייק</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <p class="mock-note">להמחשה בלבד</p>
+        <div class="get__text">
+          <p>אחרי שהצטרפת לאתגר, אני מתאימה את התפריט לסדר היום שלך.<br>
+          ואז את מקבלת סדר יום מוכן לכל 10 הימים.</p>
+        </div>
+      </article>
+
+      <!-- 4. קבוצה סגורה -->
+      <article class="get">
+        <h3 class="get__title">קבוצת וואטסאפ סגורה של בנות המחזור</h3>
+        <figure class="get__mock mock" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar">
+                <span class="phone__avatar phone__avatar--group"><svg><use href="#i-heart"/></svg></span>
+                <span class="phone__who"><b>אתגר 10 ימים</b><small>בנות המחזור</small></span>
+              </div>
+              <div class="phone__body">
+                <p class="pm-sys">אירן הוסיפה אותך לקבוצה</p>
+                <p class="pm pm--me"><span class="pm__name">אירן</span>בוקר טוב בנות ☀️ יום ראשון שלנו יחד!</p>
+                <p class="pm pm--me"><span class="pm__name">אירן</span>המשימה של היום: לשתות מים לאורך כל היום 💧</p>
+                <p class="pm pm--me"><span class="pm__name">אירן</span>אני פה לכל שאלה</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <p class="mock-note">להמחשה בלבד</p>
+        <div class="get__text">
+          <p>קבוצה סגורה רק לבנות המחזור שלך.<br>
+          עוברות את 10 הימים יחד, ולא לבד.</p>
+        </div>
+      </article>
+
+      <!-- 5. מעקב משקל -->
+      <article class="get">
+        <h3 class="get__title">מעקב משקל</h3>
+        <figure class="get__mock mock" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar">
+                <span class="phone__avatar phone__avatar--group"><svg><use href="#i-steps"/></svg></span>
+                <span class="phone__who"><b>מעקב משקל</b><small>10 ימים</small></span>
+              </div>
+              <div class="phone__body">
+                <div class="track">
+                  <svg class="track__chart" viewBox="0 0 220 110">
+                    <path class="track__grid" d="M0 27h220M0 55h220M0 83h220"/>
+                    <path class="track__line" d="M10 22 L52 34 L94 40 L136 58 L178 66 L210 80"/>
+                    <g class="track__dots"><circle cx="10" cy="22" r="4"/><circle cx="52" cy="34" r="4"/><circle cx="94" cy="40" r="4"/><circle cx="136" cy="58" r="4"/><circle cx="178" cy="66" r="4"/><circle cx="210" cy="80" r="4"/></g>
+                  </svg>
+                  <p class="track__cap">ההתקדמות שלך</p>
+                </div>
+                <p class="pm pm--me">ראיתי את העדכון שלך. ממשיכות! 💪</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <p class="mock-note">להמחשה בלבד</p>
+        <div class="get__text">
+          <p>אנחנו עוקבות יחד אחרי המשקל לאורך האתגר,<br>
+          כדי שתראי את ההתקדמות שלך.</p>
+        </div>
+      </article>
+
+      <!-- 6. הדרכות -->
+      <article class="get">
+        <h3 class="get__title">גישה להדרכות</h3>
+        <figure class="get__mock mock" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar">
+                <span class="phone__avatar"><img src="images/irene-avatar.jpg" alt="" loading="lazy"></span>
+                <span class="phone__who"><b>הדרכות</b><small>לבנות האתגר</small></span>
+              </div>
+              <div class="phone__body">
+                <div class="lesson"><span class="lesson__play"></span><span><b>שמירה על אנרגיה</b>הדרכה</span></div>
+                <div class="lesson"><span class="lesson__play"></span><span><b>מוטיבציה לאורך התהליך</b>הדרכה</span></div>
+                <div class="lesson"><span class="lesson__play"></span><span><b>כלים פרקטיים ומנטליים</b>הדרכה</span></div>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <p class="mock-note">להמחשה בלבד</p>
+        <div class="get__text">
+          <p>הדרכות אקסקלוסיביות שיתנו לך כלים פרקטיים ומנטליים,<br>
+          לשמירה על אנרגיה ומוטיבציה לאורך התהליך.</p>
+        </div>
+      </article>
+
     </div>
 
     <div class="most-important">
@@ -406,54 +586,6 @@
   </div>
 </section>
 
-<!-- ============ עדויות ============ -->
-<section class="section" id="stories" aria-labelledby="stories-title">
-  <div class="wrap">
-    <h2 class="h2" id="stories-title">מה כותבות לי הבנות</h2>
-
-    <div class="stories">
-      <div class="stories__shots">
-        <figure class="shot">
-          <img src="images/testimonial-1.jpg" alt="צילום מסך מהקבוצה: היי, ירדתי בעשרה ימים 2.1 ק&quot;ג, ו-6 ק&quot;ג בחודש וחצי מאז שהצטרפתי להרבלייף. המרתון פיקס אותי, התחרות מדרבנת. תודה לאירן המדהימה" loading="lazy">
-        </figure>
-        <figure class="shot">
-          <img src="images/testimonial-2.jpg" alt="צילום מסך משיחה עם משתתפת: בוקר!! פחות חצי ק&quot;ג. איזה כיף. ואירן עונה: הופההה!!! אמרתי לך, זה קורה, צריך פשוט סבלנות. אלופה" loading="lazy">
-        </figure>
-      </div>
-
-      <div class="stories__ba">
-        <figure class="ba">
-          <img src="images/participant-before-after-1.jpg" alt="משתתפת לפני ואחרי, אחרי חודש וחצי" loading="lazy">
-          <figcaption>חודש וחצי</figcaption>
-        </figure>
-        <figure class="ba">
-          <img src="images/participant-before-after-2.jpg" alt="משתתפת לפני ואחרי, חודש הפרש" loading="lazy">
-          <figcaption>חודש אחד</figcaption>
-        </figure>
-        <figure class="ba">
-          <img src="images/participant-before-after-3.jpg" alt="משתתפת לפני ואחרי, אחרי שנה" loading="lazy">
-          <figcaption>שנה</figcaption>
-        </figure>
-      </div>
-        <div class="beyond">
-          <h3 class="h3">ויש תוצאות שלא רואים על המשקל:</h3>
-          <figure class="shot beyond__shot">
-            <img src="images/testimonial-3.jpg" alt="צילום מסך מהקבוצה: הבן שלי אמר שהתחלתי להתלבש יפה" onerror="this.parentElement.classList.add('is-missing')">
-            <span class="media__ph" aria-hidden="true">“הבן שלי אמר שהתחלתי להתלבש יפה”<br><small>images/testimonial-3.jpg</small></span>
-          </figure>
-          <p class="disclaimer">התוצאות משתנות מאישה לאישה ואינן מובטחות</p>
-        </div>
-    </div>
-    <p class="disclaimer">חלק מהתוצאות הן של משתתפות שהמשיכו איתי גם אחרי האתגר</p>
-
-
-    <div class="cta-block cta-block--center">
-      <a class="btn" href="#form">אני רוצה מקום במחזור הקרוב</a>
-      <p class="cta-note">בדיסקרטיות: שאלון קצר, ומשם לוואטסאפ איתי</p>
-    </div>
-  </div>
-</section>
-
 <!-- ============ למי זה מתאים ============ -->
 <section class="section section--sage" id="fit" aria-labelledby="fit-title">
   <div class="wrap fit">
@@ -500,8 +632,8 @@
         <li>קבוצת וואטסאפ סגורה, מעקב משקל והדרכות</li>
       </ul>
       <div class="price__tag">
-        <p class="price__amount">299 ₪ <span>כולל מע"מ</span></p>
-        <p class="price__day">זה 29.90 ₪ ליום.<br>פחות ממה שעולה מגש פיצה אישית.</p>
+        <p class="price__amount">299 ₪</p>
+        <p class="price__day">29.90 ₪ ליום למשך 10 ימים.<br>פחות ממה שעולה מגש פיצה אישית.</p>
       </div>
     </div>
 
@@ -521,7 +653,7 @@
       <p class="cycle">
         <svg aria-hidden="true"><use href="#i-calendar"/></svg>
         <span>מחזור חדש נפתח כל שבועיים.<br>
-        המחזור הבא נפתח ב-<strong class="js-next-date">17.11.26</strong><br>
+        המחזור הבא נפתח ב-<strong class="js-next-date">1.12.26</strong><br>
         וברגע שהוא מתמלא, הבא בתור רק שבועיים אחריו.</span>
       </p>
 
@@ -546,14 +678,14 @@
       </details>
       <details>
         <summary><span>איך זה עובד בפועל?</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-        <p>את ממלאת את השאלון הקצר, ועוברת לוואטסאפ שלי.<br>
+        <p>את משאירה שם וטלפון, ועוברת לוואטסאפ שלי.<br>
         שם אני מתאימה את התפריט לסדר היום שלך.<br>
         ומהיום הראשון יש לך סדר יום מוכן.</p>
       </details>
       <details>
         <summary><span>מתי מתחילים?</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
         <p>מחזור חדש נפתח כל שבועיים.<br>
-        המחזור הבא נפתח ב-<span class="js-next-date">17.11.26</span></p>
+        המחזור הבא נפתח ב-<span class="js-next-date">1.12.26</span></p>
       </details>
       <details>
         <summary><span>כמה אפשר לרדת ב-10 ימים?</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
@@ -584,7 +716,7 @@
       <details>
         <summary><span>מי רואה את הפרטים שאני ממלאת?</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
         <p>רק אני.<br>
-        התשובות שלך בשאלון נשארות בינינו.</p>
+        הפרטים שלך נשארים בינינו. אפשר לקרוא עוד ב<a href="#privacy" class="js-privacy">מדיניות הפרטיות</a>.</p>
       </details>
     </div>
   </div>
@@ -595,61 +727,13 @@
   <div class="wrap wrap--narrow">
     <div class="form-intro">
       <h2 class="h2" id="form-title">רוצה מקום במחזור הקרוב?</h2>
-      <p class="lead">5 שאלות קצרות, ואנחנו ממשיכות בוואטסאפ</p>
-      <p>זה לוקח בערך דקה.<br>
-      התשובות מגיעות רק אליי, בדיסקרטיות.<br>
-      ככה אני מגיעה לשיחה כשאני כבר מכירה אותך קצת.</p>
+      <p class="lead">משאירה שם וטלפון, ואנחנו ממשיכות בוואטסאפ</p>
+      <p>זה לוקח פחות מדקה.<br>
+      הפרטים מגיעים רק אליי, בדיסקרטיות.</p>
     </div>
 
-    <form class="quiz" id="quiz" novalidate>
-      <div class="quiz__top">
-        <button type="button" class="quiz__back" hidden>
-          <svg aria-hidden="true"><use href="#i-back"/></svg>חזרה
-        </button>
-        <p class="quiz__count" aria-live="polite">שאלה <span class="js-step-num">1</span> מתוך 5</p>
-      </div>
-      <div class="quiz__bar" aria-hidden="true"><span class="quiz__fill"></span></div>
-
-      <fieldset class="quiz__step is-active" data-step="1">
-        <legend>כמה היית רוצה לרדת?</legend>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="goal" value="עד 5 ק&quot;ג"><span>עד 5 ק"ג</span></label>
-          <label class="choice"><input type="radio" name="goal" value="5 עד 10 ק&quot;ג"><span>5 עד 10 ק"ג</span></label>
-          <label class="choice"><input type="radio" name="goal" value="10 עד 20 ק&quot;ג"><span>10 עד 20 ק"ג</span></label>
-          <label class="choice"><input type="radio" name="goal" value="יותר מ-20 ק&quot;ג"><span>יותר מ-20 ק"ג</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset class="quiz__step" data-step="2" hidden>
-        <legend>מה הכי קשה לך היום?</legend>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="hard" value="נשנושים בערב"><span>נשנושים בערב</span></label>
-          <label class="choice"><input type="radio" name="hard" value="חשק למתוק"><span>חשק למתוק</span></label>
-          <label class="choice"><input type="radio" name="hard" value="אין לי זמן לאכול מסודר"><span>אין לי זמן לאכול מסודר</span></label>
-          <label class="choice"><input type="radio" name="hard" value="ירדתי בעבר, והכל חזר"><span>ירדתי בעבר, והכל חזר</span></label>
-          <label class="choice"><input type="radio" name="hard" value="קשה לי להתמיד לבד"><span>קשה לי להתמיד לבד</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset class="quiz__step" data-step="3" hidden>
-        <legend>איך את מקבלת החלטה כזאת?</legend>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="decide" value="מחליטה לבד"><span>אני יכולה להחליט לבד בעצמי</span></label>
-          <label class="choice"><input type="radio" name="decide" value="צריכה להתייעץ"><span>אסור לי לקבל החלטה בעצמי, אז אני צריכה להתייעץ קודם עם מישהו</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset class="quiz__step" data-step="4" hidden>
-        <legend>מתי היית רוצה להתחיל?</legend>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="when" value="במחזור הקרוב"><span>כמה שיותר מהר, במחזור הקרוב</span></label>
-          <label class="choice"><input type="radio" name="when" value="בעוד חודש בערך"><span>בעוד חודש בערך</span></label>
-          <label class="choice"><input type="radio" name="when" value="לא יודעת"><span>לא יודעת</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset class="quiz__step" data-step="5" hidden>
-        <legend>ולאן לשלוח לך הודעה?</legend>
+    <form class="quiz lead-form" id="lead-form" novalidate>
+      <div class="lead-form__fields">
         <div class="field">
           <label for="f-name">שם פרטי</label>
           <input id="f-name" name="name" type="text" autocomplete="given-name" required>
@@ -662,7 +746,7 @@
         </div>
         <label class="consent">
           <input type="checkbox" name="consent" id="f-consent" required>
-          <span>אני מאשרת לאירן אלקבץ לפנות אליי בוואטסאפ בנוגע לאתגר. קראתי את <a href="#" class="js-privacy">מדיניות הפרטיות</a>.</span>
+          <span>אני מאשרת לאירן אלקבץ לפנות אליי בוואטסאפ ובטלפון בנוגע לאתגר 10 ימים. קראתי את <a href="#privacy" class="js-privacy">מדיניות הפרטיות</a>.</span>
         </label>
         <p class="field__error" id="err-consent" hidden>כדי שאירן תוכל לחזור אלייך, צריך לסמן את האישור</p>
 
@@ -673,7 +757,7 @@
         <p class="cta-note cta-note--center">מיד אחרי השליחה תעברי לוואטסאפ שלי.<br>
         שם נדבר, ואענה לך על כל שאלה.<br>
         רק אחרי זה את מחליטה. בלי תשלום באתר.</p>
-      </fieldset>
+      </div>
 
       <div class="quiz__done" hidden tabindex="-1">
         <p class="quiz__done-title">מעולה, ההודעה שלך מוכנה בוואטסאפ</p>
@@ -699,10 +783,47 @@
     <p>התמונות להמחשה בלבד. התוצאות משתנות מאישה לאישה ואינן מובטחות.</p>
     <p>המידע בדף אינו ייעוץ רפואי ואינו מחליף התייעצות עם רופא.</p>
     <p>תוסף תזונה אינו תרופה ואינו תחליף לתזונה מגוונת ומאוזנת.</p>
-    <p>אירן אלקבץ, מפיצה עצמאית של הרבלייף.</p>
-    <p class="footer__links"><a href="#" class="js-privacy">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a></p>
+    <p>אירן אלקבץ, מפיצה עצמאית של הרבלייף. טלפון: <a class="js-phone-link" href="tel:" dir="ltr"><span class="js-phone">05X-XXXXXXX</span></a></p>
+    <p class="footer__links"><a href="#privacy" class="js-privacy">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a></p>
   </div>
 </footer>
+
+<!-- ============ מדיניות פרטיות (טיוטה לבדיקה של אירן) ============ -->
+<dialog class="policy" id="privacy" aria-labelledby="privacy-title">
+  <div class="policy__inner">
+    <button type="button" class="policy__close js-policy-close" aria-label="סגירה">×</button>
+    <h2 class="h3" id="privacy-title">מדיניות פרטיות</h2>
+    <p class="policy__date">עודכן לאחרונה: 17.11.2026</p>
+
+    <h3>מי אחראית על המידע</h3>
+    <p>אירן אלקבץ, מפיצה עצמאית של הרבלייף. טלפון: <span class="js-phone" dir="ltr">05X-XXXXXXX</span>.<br>
+    הדף מופעל על ידי אירן באופן עצמאי, ולא על ידי חברת הרבלייף.</p>
+
+    <h3>איזה מידע נאסף</h3>
+    <p>רק מה שאת כותבת בטופס: שם פרטי ומספר טלפון נייד.<br>
+    לא אוספים בדף מידע על משקל, בריאות או תשלום.</p>
+
+    <h3>לאן המידע הולך</h3>
+    <p>הדף לא שומר את הפרטים בשום מאגר.<br>
+    כשאת לוחצת "שולחת", נפתח אצלך וואטסאפ עם הודעה מוכנה אליי. הפרטים מגיעים אליי רק אם את שולחת את ההודעה בעצמך.</p>
+
+    <h3>למה המידע משמש</h3>
+    <p>כדי לחזור אלייך בנוגע לאתגר 10 ימים, ורק לזה.<br>
+    לא אשלח לך הודעות שיווק אחרות בלי הסכמה נפרדת שלך.</p>
+
+    <h3>עם מי המידע משותף</h3>
+    <p>אני לא מוכרת ולא מעבירה את הפרטים שלך לאף אחד.<br>
+    השיחה מתנהלת בוואטסאפ, ולכן חלים עליה גם תנאי הפרטיות של וואטסאפ.<br>
+    שירות האחסון של הדף (GitHub) ושירות הגופנים (Google Fonts) עשויים לקבל נתונים טכניים, כמו כתובת IP, כמו בכל גלישה באינטרנט.</p>
+
+    <h3>כמה זמן שומרים</h3>
+    <p>רק כל עוד זה נחוץ לקשר בינינו, או עד שתבקשי למחוק.</p>
+
+    <h3>הזכויות שלך</h3>
+    <p>אפשר לבקש ממני בכל רגע לראות, לתקן או למחוק את הפרטים שלך, או לבטל את ההסכמה לפנייה.<br>
+    מספיק לשלוח לי הודעה בוואטסאפ או להתקשר.</p>
+  </div>
+</dialog>
 
 <div class="sticky-cta" aria-hidden="true">
   <a class="btn btn--wide" href="#form" tabindex="-1">אני רוצה מקום במחזור הקרוב</a>
