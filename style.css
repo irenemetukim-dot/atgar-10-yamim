@@ -1191,3 +1191,10 @@ dialog.policy::backdrop { background: rgba(30, 15, 22, .6); }
   .hero__media { width: calc(100% - 28px); }
   .hero__proof { left: -16px; width: 150px; }
 }
+
+/* ---- חץ לפני/אחרי מתחת לתמונה (לא על הפנים) ---- */
+.ba-arrow--below {
+  position: static; transform: none;
+  width: min(60%, 340px); margin: 10px auto 4px;
+}
+.ba-arrow--below .ba-arrow__line path { stroke: var(--berry); filter: none; }
