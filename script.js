@@ -162,11 +162,26 @@ if (form) {
     // פיקסל מטא: אירוע "יצירת קשר" אחד לכל שליחה תקינה של הטופס.
     // זה לא ליד מאומת: עדיין לא ידוע אם ההודעה נשלחה בוואטסאפ.
     // בלי שום פרט מהטופס (שם/טלפון) - רק שם האירוע.
+    // המעבר לוואטסאפ מחכה עד שהאירוע יצא למטא (לכל היותר 0.7 שניות),
+    // כי בטלפון וואטסאפ נפתח מיד כאפליקציה והדף "קופא" לפני שהאירוע נשלח.
+    let left = false;
+    const goToWhatsApp = () => { if (!left) { left = true; window.location.href = url; } };
+
     if (!form.dataset.contactSent && typeof window.fbq === "function") {
       form.dataset.contactSent = "1";
+      try {
+        const po = new PerformanceObserver((list) => {
+          if (list.getEntries().some((en) => /facebook\.com\/tr/.test(en.name) && /ev=Contact/.test(en.name))) {
+            po.disconnect();
+            goToWhatsApp();
+          }
+        });
+        po.observe({ type: "resource" });
+      } catch (err) { /* דפדפן ישן: נשען על הטיימר */ }
       window.fbq("track", "Contact");
+      setTimeout(goToWhatsApp, 700);
+    } else {
+      goToWhatsApp();
     }
-
-    window.location.href = url;
   });
 }
