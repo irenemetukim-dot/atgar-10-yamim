@@ -159,6 +159,14 @@ if (form) {
     done.querySelector(".js-wa-link").href = url;
     done.focus();
 
+    // פיקסל מטא: אירוע "יצירת קשר" אחד לכל שליחה תקינה של הטופס.
+    // זה לא ליד מאומת: עדיין לא ידוע אם ההודעה נשלחה בוואטסאפ.
+    // בלי שום פרט מהטופס (שם/טלפון) - רק שם האירוע.
+    if (!form.dataset.contactSent && typeof window.fbq === "function") {
+      form.dataset.contactSent = "1";
+      window.fbq("track", "Contact");
+    }
+
     window.location.href = url;
   });
 }
