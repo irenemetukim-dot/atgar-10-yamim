@@ -81,7 +81,10 @@ if (CONFIG.phoneDisplay) {
 
 /* ===== חלון הפתיחה של הרבלייף: מופיע בכל כניסה לדף, גם בכניסות חוזרות ===== */
 const popup = document.getElementById("hl-popup");
-if (popup) {
+// בעמוד מדיניות הפרטיות: מי שהגיעה מדף הנחיתה כבר ראתה את החלון, אז לא מציגים שוב
+const cameFromSite = document.body.hasAttribute("data-popup-skip-internal") &&
+  document.referrer.indexOf(location.origin + "/atgar-10-yamim/") === 0;
+if (popup && !cameFromSite) {
   let lastFocus = null;
   const closePopup = () => {
     popup.hidden = true;

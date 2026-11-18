@@ -10,28 +10,10 @@
 <meta property="og:image" content="images/irene-hero.jpg">
 <meta name="theme-color" content="#F7F0E8">
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="style.css">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-// בלי איסוף אוטומטי של לחיצות ותוכן מהדף, כדי שפרטי הטופס לא יעברו למטא
-fbq('set', 'autoConfig', false, '1677676460613581');
-fbq('init', '1677676460613581');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=1677676460613581&ev=PageView&noscript=1"></noscript>
-<!-- End Meta Pixel Code -->
+<!-- הפיקסל של מטא נטען רק אחרי אישור עוגיות (consent.js) -->
+<script src="consent.js"></script>
 </head>
 <body>
 
@@ -732,7 +714,7 @@ src="https://www.facebook.com/tr?id=1677676460613581&ev=PageView&noscript=1"></n
       <details>
         <summary><span>מי רואה את הפרטים שאני ממלאת?</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
         <p>רק אני.<br>
-        הפרטים שלך נשארים בינינו. אפשר לקרוא עוד ב<a href="#privacy" class="js-privacy">מדיניות הפרטיות</a>.</p>
+        הפרטים שלך נשארים בינינו. אפשר לקרוא עוד ב<a href="https://irenemetukim-dot.github.io/atgar-10-yamim/privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</p>
       </details>
     </div>
   </div>
@@ -762,9 +744,12 @@ src="https://www.facebook.com/tr?id=1677676460613581&ev=PageView&noscript=1"></n
         </div>
         <label class="consent">
           <input type="checkbox" name="consent" id="f-consent" required>
-          <span>אני מאשרת לאירן אלקבץ לפנות אליי בוואטסאפ ובטלפון בנוגע לאתגר 10 ימים. קראתי את <a href="#privacy" class="js-privacy">מדיניות הפרטיות</a>.</span>
+          <span>אני מאשרת לאירן אלקבץ לפנות אליי בוואטסאפ ובטלפון בנוגע לאתגר 10 ימים. קראתי את <a href="https://irenemetukim-dot.github.io/atgar-10-yamim/privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</span>
         </label>
         <p class="field__error" id="err-consent" hidden>כדי שאירן תוכל לחזור אלייך, צריך לסמן את האישור</p>
+        <p class="lead-form__notice">מסירת השם והטלפון היא מרצונך, ואין חובה חוקית למסור אותם. בלעדיהם לא אוכל לחזור אלייך בנוגע לאתגר.
+        הפרטים משמשים רק כדי שאחזור אלייך לגבי אתגר 10 ימים. הם מגיעים אליי, אירן אלקבץ, דרך וואטסאפ (שירות של חברת מטא), ורק אם תשלחי את ההודעה בעצמך.
+        זכותך לעיין בפרטים שלך ולבקש לתקן או למחוק אותם. כל הפרטים ב<a href="https://irenemetukim-dot.github.io/atgar-10-yamim/privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</p>
 
         <button type="submit" class="btn btn--wide">
           <svg aria-hidden="true"><use href="#i-chat"/></svg>
@@ -800,46 +785,11 @@ src="https://www.facebook.com/tr?id=1677676460613581&ev=PageView&noscript=1"></n
     <p>המידע בדף אינו ייעוץ רפואי ואינו מחליף התייעצות עם רופא.</p>
     <p>תוסף תזונה אינו תרופה ואינו תחליף לתזונה מגוונת ומאוזנת.</p>
     <p>אירן אלקבץ, מפיצה עצמאית של הרבלייף. טלפון: <a class="js-phone-link" href="tel:+972542559279" dir="ltr"><span class="js-phone">054-2559279</span></a></p>
-    <p class="footer__links"><a href="#privacy" class="js-privacy">מדיניות פרטיות</a><a href="#accessibility" class="js-a11y">הצהרת נגישות</a></p>
+    <p class="footer__links"><a href="https://irenemetukim-dot.github.io/atgar-10-yamim/privacy.html">מדיניות פרטיות</a><a href="#accessibility" class="js-a11y">הצהרת נגישות</a><a href="#" class="js-cookie-settings">הגדרות עוגיות</a></p>
   </div>
 </footer>
 
-<!-- ============ מדיניות פרטיות (טיוטה לבדיקה של אירן) ============ -->
-<dialog class="policy" id="privacy" aria-labelledby="privacy-title">
-  <div class="policy__inner">
-    <button type="button" class="policy__close js-policy-close" aria-label="סגירה">×</button>
-    <h2 class="h3" id="privacy-title">מדיניות פרטיות</h2>
-    <p class="policy__date">עודכן לאחרונה: 17.11.2026</p>
-
-    <h3>מי אחראית על המידע</h3>
-    <p>אירן אלקבץ, מפיצה עצמאית של הרבלייף. טלפון: <span class="js-phone" dir="ltr">054-2559279</span>.<br>
-    הדף מופעל על ידי אירן באופן עצמאי, ולא על ידי חברת הרבלייף.</p>
-
-    <h3>איזה מידע נאסף</h3>
-    <p>רק מה שאת כותבת בטופס: שם פרטי ומספר טלפון נייד.<br>
-    לא אוספים בדף מידע על משקל, בריאות או תשלום.</p>
-
-    <h3>לאן המידע הולך</h3>
-    <p>הדף לא שומר את הפרטים בשום מאגר.<br>
-    כשאת לוחצת "שולחת", נפתח אצלך וואטסאפ עם הודעה מוכנה אליי. הפרטים מגיעים אליי רק אם את שולחת את ההודעה בעצמך.</p>
-
-    <h3>למה המידע משמש</h3>
-    <p>כדי לחזור אלייך בנוגע לאתגר 10 ימים, ורק לזה.<br>
-    לא אשלח לך הודעות שיווק אחרות בלי הסכמה נפרדת שלך.</p>
-
-    <h3>עם מי המידע משותף</h3>
-    <p>אני לא מוכרת ולא מעבירה את הפרטים שלך לאף אחד.<br>
-    השיחה מתנהלת בוואטסאפ, ולכן חלים עליה גם תנאי הפרטיות של וואטסאפ.<br>
-    שירות האחסון של הדף (GitHub) ושירות הגופנים (Google Fonts) עשויים לקבל נתונים טכניים, כמו כתובת IP, כמו בכל גלישה באינטרנט.</p>
-
-    <h3>כמה זמן שומרים</h3>
-    <p>רק כל עוד זה נחוץ לקשר בינינו, או עד שתבקשי למחוק.</p>
-
-    <h3>הזכויות שלך</h3>
-    <p>אפשר לבקש ממני בכל רגע לראות, לתקן או למחוק את הפרטים שלך, או לבטל את ההסכמה לפנייה.<br>
-    מספיק לשלוח לי הודעה בוואטסאפ או להתקשר.</p>
-  </div>
-</dialog>
+<!-- מדיניות הפרטיות נמצאת בעמוד נפרד: privacy.html -->
 <!-- ============ הצהרת נגישות ============ -->
 <dialog class="policy" id="accessibility" aria-labelledby="a11y-title">
   <div class="policy__inner">
